@@ -46,7 +46,7 @@ function makeTop(page_type, filename, description) {
 function makeBottom(page_type) {
   return `<div class="wrapper" style="padding-left: 1ch; padding-right: 1ch; margin-bottom: ${grem};"><div style="margin-bottom: ${grem};">${
     page_type === 'page' ? `<a href="/">go to index</a>` : ''
-  }</div><div>by <a href="http://feed.grantcuster.com" target="_blank">Grant</a></div><div style="margin-bottom: ${grem};"><a href="https://github.com/GrantCuster/scrawl">view source</a></div></div></body></html>`;
+  }</div><div>by <a href="http://feed.grantcuster.com" target="_blank">Grant</a></div><div style="margin-bottom: ${grem};"><a href="https://github.com/GrantCuster/scrawl" target='_blank">view source</a></div></div></body></html>`;
 }
 
 function removeLinkSyntax(content) {
