@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node build.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "node build.js && touch out/.nojekyll && touch out/CNAME && echo \"scrawl.grantcuster.com\" >> out/CNAME && git add out/ && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix out origin gh-pages"
   },
   "keywords": [],
   "author": "",
