@@ -4,7 +4,7 @@ let lh = 1.2;
 let grem = `${lh}rem`;
 
 function makeStyle() {
-  return `<style>html { background: #efefef; color: #222; font-size: 32px; line-height: ${lh}; font-family: sans-serif; } body { margin: 0; } .wrapper { max-width: 40ch; margin-left: auto; margin-right: auto; } a { color: inherit; text-decoration-skip-ink: none; }</style>`;
+  return `<style>* { box-sizing: border-box; } html { background: #efefef; color: #222; font-size: 32px; line-height: ${lh}; font-family: sans-serif; } body { margin: 0; } .wrapper { max-width: 40ch; margin-left: auto; margin-right: auto; } a { color: inherit; text-decoration-skip-ink: none; }</style>`;
 }
 
 function makeHead(page_type, filename, description_text) {
@@ -63,16 +63,22 @@ function wrapPost(content, filename, page_type) {
   let file_path = filename.split('.')[0] + '.html';
 
   return (
-    `<div class="wrapper" style="white-space: pre-wrap; padding-left: 1ch; padding-right: 1ch; position: relative; margin-bottom: ${grem};">` +
+    `<div class="wrapper" style="margin-bottom: ${grem};">` +
+    `<div style="position: sticky; top: 0; background: #efefef; z-index: 99; margin-left: -1px; margin-right: -1px; padding-left: 1px; padding-right: 1px;">
+    <div style="position: absolute; left: 0; bottom: -1px; border-bottom: solid 2px black; width: 100%;"></div>
+    <div style="padding-left: 1ch; padding-right: 1ch;">
+    ${
+      page_type === 'page'
+        ? file_path
+        : `<a href="/${file_path}">${file_path}</a>`
+    }</div></div>` +
+    `<div style="white-space: pre-wrap; padding-left: 1ch; padding-right: 1ch; position: relative; ">` +
     '<div style="position: absolute; left: -1px; top: -1px; right: -1px; bottom: -1px; border: solid 2px black; z-index: -1; pointer-events: none;"></div>' +
-    (page_type === 'page'
-      ? file_path
-      : `<a href="/${file_path}">${file_path}</a>`) +
-    '\n' +
     word_count +
     ' words' +
     '\n\n' +
     content +
+    `</div>` +
     '</div>'
   );
 }
