@@ -1,0 +1,13 @@
+I have an idea for a writing system where I just describe the things around me (basically like doing a sketch from life everyday but for writing: "My computer is sitting on a brown, wooden table. The table is covered in tan scratches, mostly in the middle and around the edges. I have a small coffee in a cup on a saucer. The coffee is a shade of tan in-between the colors of the scratches and the table."). I wonder what that interface and presentation should look like? Should I also actually draw the scene, and present the sketch along with the words? That seems like an interesting project but the drawing would make the writing somewhat irrelevant.
+
+The ambitious idea of for the observation-write presentation is to use some of the [ASCII art experiments](https://observablehq.com/@grantcuster/text-portrait) I've done, and take a picture of the scene, that then gets rendered using only the letters from the description. I think this is a cool idea, but it might have too many fiddly aspects to start with.
+
+More presentation ideas:
+- Take a picture, threshold it, the writing can only go in the black areas.
+- Use GPS coordinates to position the writing on a map.
+- Use something like the concept of a GPS map but more abstract. Something that combines actual geographic space with mental space.
+- Sometimes I'll write about large stuff, like buildings or skylines, and sometimes small stuff, like the dust on a chair in front of me. Is there some way I can represent that difference in scale in the interface and presentation.
+- Do something generative combining the time of day I wrote it and the geographic location (to set something like background color).
+- Track my eyes as I look around, then make a drawing of how my gaze moved as I wrote.
+
+Of those, I think something that represents the different scale of the writing sounds the most promising. It has the feel of a presentation conceit with a meaningful connection to the content, where I'd actually be interested in getting a feel for how much I describe small stuff versus large stuff (compared to time of day or location, which for me would be pretty same-y day-to-day). But what is the way to present that that is noticeable but not overwhelming? Something with bigger and smaller font-size is what I first think of. Hard to that do without being really distracting, though. It would be cool to have a 3d interface where the text is positioned in space. And then maybe the closer stuff could actually be writing positioned closer to the viewer. But I also want the entries to be arranged reversed-chronologically, how do I merge those two overlapping organization systems?
