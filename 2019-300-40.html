@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <title>2019-300-40</title>
+    <meta name="description" content="I'm working on a new build system for our Fast Forward reports. Previously, we have been writing in Asciidoc. That gets converted to HTML via Pandoc and inserted into a Django template. It works partl" />
+
+    <meta property="og:title" content="2019-300-40" />
+    <meta property="og:description" content="I'm working on a new build system for our Fast Forward reports. Previously, we have been writing in Asciidoc. That gets converted to HTML via Pandoc and inserted into a Django template. It works partl" />
+    <meta property="og:image" content="http://scrawl.grantcuster.com/scrawl.png" />
+    <meta property="og:url" content="https://scrawl.grantcuster.com/2019-300-40.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="viewport" content="width=device-width" />
+    
+    <style>* { box-sizing: border-box; } html { background: #efefef; color: #222; font-size: 32px; line-height: 1.2; font-family: sans-serif; } body { margin: 0; } .wrapper { max-width: 40ch; margin-left: auto; margin-right: auto; } a { color: inherit; text-decoration-skip-ink: none; }</style>
+  </head><body><div class="wrapper" style="padding-left: 1ch; padding-right: 1ch; margin-top: 1.2rem; margin-bottom:1.2rem;"><a href="/">scrawl<a/></div><div class="wrapper" style="margin-bottom: 1.2rem;"><div style="position: sticky; top: 0; background: #efefef; z-index: 99; margin-left: -1px; margin-right: -1px; padding-left: 1px; padding-right: 1px;">
+    <div style="position: absolute; left: 0; bottom: -1px; border-bottom: solid 2px black; width: 100%;"></div>
+    <div style="padding-left: 1ch; padding-right: 1ch;">
+    2019-300-40.html</div></div><div style="white-space: pre-wrap; padding-left: 1ch; padding-right: 1ch; position: relative; "><div style="position: absolute; left: -1px; top: -1px; right: -1px; bottom: -1px; border: solid 2px black; z-index: -1; pointer-events: none;"></div>511 words
+
+I'm working on a new build system for our Fast Forward reports. Previously, we have been writing in Asciidoc. That gets converted to HTML via Pandoc and inserted into a Django template. It works partly through an Asciidoc configuration file with a bunch of trial-and-error-based hacks that I never felt comfortable with. I have long wanted to revamp this but it's taken me a while to figure out exactly what I wanted to do.
+
+So far, in the new system we write in markdown. The report gets build using node and a markdown renderer called markdown-it. Markdown-it had enough plugins/rendering flexibility to get almost all the features we regularly used in Asciidoc (table of contents, figure captions, an info box). The output is much cleaner and I understand the system much better (it's still on my list to understand the markdown-it configuration options better, though).
+
+The markdown render gets put together with HTML and and CSS via a node build file. The process of manipulating (reading, writing, moving) files through a build script is new to me, and it feels great to have that control. I discovered the techniques looking at build processes for Next.js static blogs. The file has gotten messy as I've added more CSS and some javscript. But it still feels great to know exactly the relationship between the code going in and the code generated. I also get to carry over some of the style stuff I've built up from React, where I set a unit for line-height and then can use that for spacing math in both the CSS and the element style options.
+
+My end goal for this is for us to be able to publish research and feel very confident in the presentation. Another big part of this is communicating the available content styles to the rest of the team. A constrained and understood style space is going to ensure there are no rendering surprises. It will also make it easier for everyone to write. I often think back to the title of the article "When I sit down at my text editor I feel calm". That is a big part of the goal. That everyone can sit down and do the work of thinking and writing and feel confident in their tools. Having the tools be understandable (so the user can maintain a mental model of what's going to happen in their head, and feel confindent about it) is, I think, a key part of reaching that feeling.
+
+This is an area I've returned to again and again in my work. I'm thinking about whether and how it could be turned into a career. What is it exactly? Is it just building a CMS? I think what I want to make are content systems. So content strategy is in there. And I also want to build the (simple) tools. And then part of the tool constraints should be tied to the branding, which I'd also like to develop. So that's a lot! Or would I like to make the system that lets other people make these systems?
+</div></div><div class="wrapper" style="padding-left: 1ch; padding-right: 1ch; margin-bottom: 1.2rem;"><div style="margin-bottom: 1.2rem;"><a href="/">go to index</a></div><div>by <a href="http://feed.grantcuster.com" target="_blank">Grant</a></div><div style="margin-bottom: 1.2rem;"><a href="https://github.com/GrantCuster/scrawl" target="_blank">view source</a></div></div></body></html>
