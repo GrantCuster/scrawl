@@ -4,10 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev_build": "nodemon build.js -e js,txt --watch posts",
     "build": "node build.js",
     "deploy": "node build.js && touch out/.nojekyll && touch out/CNAME && echo \"scrawl.grantcuster.com\" >> out/CNAME && git add out/ && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix out origin gh-pages"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "serve": "^11.2.0"
+  }
 }
