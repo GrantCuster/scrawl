@@ -1,0 +1,13 @@
+Rough music purchasing plan:
+
+I've been meaning to switch off Spotify to bandcamp, but unsure about how to start the transition. So I'm planning a system.
+
+I keep listening to Spotify, tracking what I listen to using last.fm. At the end of each month I buy three albums.
+
+Which albums I buy is based on a combination of:
+  what I listen to the most +
+  bias toward active artists (release in the past two years?) +
+  bias towards less popular artists (probably using a threshold of global plays on spotify or last.fm) +
+  available to buy on bandcamp.
+
+Maybe I'll make a script to calculate this for myself.
