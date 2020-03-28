@@ -1,20 +1,20 @@
-let fs = require('fs');
+let fs = require('fs')
 
-let lh = 1.2;
-let grem = `${lh}rem`;
+let lh = 1.2
+let grem = `${lh}rem`
 
 function makeStyle() {
-  return `<style>* { box-sizing: border-box; } html { background: #efefef; color: #222; font-size: 32px; line-height: ${lh}; font-family: sans-serif; } body { margin: 0; } .wrapper { max-width: 40ch; margin-left: auto; margin-right: auto; } a { color: inherit; text-decoration-skip-ink: none; }</style>`;
+  return `<style>* { box-sizing: border-box; } html { background: #efefef; color: #222; font-size: 24px; line-height: ${lh}; font-family: sans-serif; } body { margin: 0; } .wrapper { max-width: 50ch; margin-left: auto; margin-right: auto; } a { color: inherit; text-decoration-skip-ink: none; }</style>`
 }
 
 function makeHead(page_type, filename, description_text) {
-  let title = page_type === 'page' ? filename.split('.')[0] : 'scrawl';
+  let title = page_type === 'page' ? filename.split('.')[0] : 'scrawl'
   let description =
-    page_type === 'page' ? description_text : 'Notes, quickly written.';
+    page_type === 'page' ? description_text : 'Notes, quickly written.'
   let url =
     page_type === 'page'
       ? 'https://scrawl.grantcuster.com/' + filename.split('.')[0] + '.html'
-      : 'https://scrawl.grantcuster.com';
+      : 'https://scrawl.grantcuster.com'
   return `<head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -31,7 +31,7 @@ function makeHead(page_type, filename, description_text) {
     <meta name="viewport" content="width=device-width" />
     
     ${makeStyle()}
-  </head>`;
+  </head>`
 }
 
 function makeTop(page_type, filename, description) {
@@ -41,26 +41,26 @@ function makeTop(page_type, filename, description) {
     description
   )}<body><div class="wrapper" style="padding-left: 1ch; padding-right: 1ch; margin-top: ${grem}; margin-bottom:${grem};">${
     page_type === 'page' ? `<a href="/">scrawl<a/>` : 'scrawl'
-  }</div>`;
+  }</div>`
 }
 function makeBottom(page_type) {
   return `<div class="wrapper" style="padding-left: 1ch; padding-right: 1ch; margin-bottom: ${grem};"><div style="margin-bottom: ${grem};">${
     page_type === 'page' ? `<a href="/">go to index</a>` : ''
-  }</div><div>by <a href="http://feed.grantcuster.com" target="_blank">Grant</a></div><div style="margin-bottom: ${grem};"><a href="https://github.com/GrantCuster/scrawl" target="_blank">view source</a></div></div></body></html>`;
+  }</div><div>by <a href="http://feed.grantcuster.com" target="_blank">grant</a></div><div style="margin-bottom: ${grem};"><a href="https://github.com/GrantCuster/scrawl" target="_blank">view source</a></div></div></body></html>`
 }
 
 function removeLinkSyntax(content) {
-  content = content.replace(/\[(.*?)\]\((.*?)\)/gi, (match, g1, g2) => `${g1}`);
-  return content;
+  content = content.replace(/\[(.*?)\]\((.*?)\)/gi, (match, g1, g2) => `${g1}`)
+  return content
 }
 
 function wrapPost(content, filename, page_type) {
-  let word_count = content.split(' ').length;
+  let word_count = content.split(' ').length
   content = content.replace(
     /\[(.*?)\]\((.*?)\)/gi,
     (match, g1, g2) => `<a href="${g2}" target="_blank">${g1}</a>`
-  );
-  let file_path = filename.split('.')[0] + '.html';
+  )
+  let file_path = filename.split('.')[0] + '.html'
 
   return (
     `<div class="wrapper" style="margin-bottom: ${grem};">` +
@@ -80,33 +80,33 @@ function wrapPost(content, filename, page_type) {
     content +
     `</div>` +
     '</div>'
-  );
+  )
 }
 
-let filenames = fs.readdirSync('posts').reverse();
+let filenames = fs.readdirSync('posts').reverse()
 let files = filenames.map(filename => {
-  let content = fs.readFileSync('posts/' + filename, 'utf-8');
-  let description = content.slice().replace(/\n\n/g, ' ');
-  description = description.replace(/\n/g, ' ');
-  description = removeLinkSyntax(description);
-  description = description.slice(0, 200).trim();
+  let content = fs.readFileSync('posts/' + filename, 'utf-8')
+  let description = content.slice().replace(/\n\n/g, ' ')
+  description = description.replace(/\n/g, ' ')
+  description = removeLinkSyntax(description)
+  description = description.slice(0, 200).trim()
   let html =
     makeTop('page', filename, description) +
     wrapPost(content, filename, 'page') +
-    makeBottom('page');
-  return html;
-});
+    makeBottom('page')
+  return html
+})
 
 // write post pages
 for (let f = 0; f < filenames.length; f++) {
-  fs.writeFileSync('out/' + filenames[f].split('.')[0] + '.html', files[f]);
+  fs.writeFileSync('out/' + filenames[f].split('.')[0] + '.html', files[f])
 }
 
-let index = makeTop('index');
+let index = makeTop('index')
 for (let f = 0; f < filenames.length; f++) {
-  let content = fs.readFileSync('posts/' + filenames[f], 'utf-8');
-  let html = wrapPost(content, filenames[f], 'index');
-  index += html;
+  let content = fs.readFileSync('posts/' + filenames[f], 'utf-8')
+  let html = wrapPost(content, filenames[f], 'index')
+  index += html
 }
-index += makeBottom('index');
-fs.writeFileSync('out/' + 'index.html', index);
+index += makeBottom('index')
+fs.writeFileSync('out/' + 'index.html', index)
