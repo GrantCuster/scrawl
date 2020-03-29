@@ -110,3 +110,37 @@ for (let f = 0; f < filenames.length; f++) {
 }
 index += makeBottom('index')
 fs.writeFileSync('out/' + 'index.html', index)
+
+let feed = {
+  version: 'https://jsonfeed.org/version/1',
+  title: 'scrawl - Grant Custer',
+  home_page_url: 'https://scrawl.grantcuster.com',
+  feed_url: 'https://scrawl.grantcuster.com/feed.json',
+  author: {
+    name: 'Grant Custer',
+    url: 'https://index.grantcuster.com',
+  },
+  items: [],
+}
+for (let f = 0; f < filenames.length; f++) {
+  let filename = filenames[f]
+  let item = {}
+  item.id = filename.split('.')[0]
+  item.url =
+    'https://scrawl.grantcuster.com/' + filenames[f].split('.')[0] + '.html'
+  item.content_text = fs.readFileSync('posts/' + filenames[f], 'utf-8')
+  let [year, days, quarter] = filename
+    .split('.')[0]
+    .split('-')
+    .map(v => parseInt(v))
+  let date = new Date(
+    new Date(year, 0, 0).getTime() +
+      days * 24 * 60 * 60 * 1000 -
+      5 * 60 * 60 * 1000 +
+      quarter * 15 * 60 * 1000
+  )
+  item.date = date.toJSON()
+  feed.items.push(item)
+}
+
+fs.writeFileSync('out/' + 'feed.json', JSON.stringify(feed))
