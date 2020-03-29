@@ -135,8 +135,7 @@ for (let f = 0; f < filenames.length; f++) {
     .map(v => parseInt(v))
   let date = new Date(
     new Date(year, 0, 0).getTime() +
-      days * 24 * 60 * 60 * 1000 -
-      5 * 60 * 60 * 1000 +
+      days * 24 * 60 * 60 * 1000 +
       quarter * 15 * 60 * 1000
   )
   item.date = date.toJSON()
