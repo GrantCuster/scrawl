@@ -138,7 +138,7 @@ for (let f = 0; f < filenames.length; f++) {
       days * 24 * 60 * 60 * 1000 +
       quarter * 15 * 60 * 1000
   )
-  item.date = date.toJSON()
+  item.date_published = date.toJSON()
   feed.items.push(item)
 }
 
