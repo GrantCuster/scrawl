@@ -1,0 +1,15 @@
+Shower idea: spreadsheet style image editor. (Also very much inspired by the way canvas works.)
+
+There would be a source image and a destination image (maybe call the destination image canvas?). Break the image up into 16x16 cells and stretch image to fit. Then you've got a selector, that can expand to different cell sizes, and can copy-paste paint from the source image to the canvas.
+
+So for that you'd need to be able to controld the selector, resize it, and change the source cells (while the destination cells stay the same).
+
+You might also need layers to keep things non-destructive.
+
+Actually you might want two modes of movement on the canvas, one where the source moves with it, and one were the source stays static. All of these should be instituted like live formulas from excel. Although you wouldn't be able to do a mutating feedback loop exactly, because your original is kept in original condition and you're always linking from there -- unless you also have the option to link from your destination. THat might be fun.
+
+You have two different color outline to indicate source and destination. That's actually quite a few combinations of modes - might take a while to get controls that feel good.
+
+I thought you would want to be able to change resolution (up and down). But actually it might be better to be able to zoom by factors of 2, like xzoom does. Depends which project this is a part of.
+
+It would definitely be fun to show the source and destination info at the bottom in text as an excel type formula.

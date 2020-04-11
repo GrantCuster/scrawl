@@ -17,6 +17,26 @@
   </head><body><div class="wrapper" style="padding-left: 1ch; padding-right: 1ch; margin-top: 1.2rem; margin-bottom:1.2rem;">scrawl</div><div class="wrapper" style="margin-bottom: 1.2rem;"><div style="position: sticky; top: 0; background: #efefef; z-index: 99; margin-left: -1px; margin-right: -1px; padding-left: 1px; padding-right: 1px;">
     <div style="position: absolute; left: 0; bottom: -1px; border-bottom: solid 2px black; width: 100%;"></div>
     <div style="padding-left: 1ch; padding-right: 1ch;">
+    <a href="/2020-102-63.html">2020-102-63.html</a></div></div><div style="white-space: pre-wrap; padding-left: 1ch; padding-right: 1ch; position: relative; "><div style="position: absolute; left: -1px; top: -1px; right: -1px; bottom: -1px; border: solid 2px black; z-index: -1; pointer-events: none;"></div>264 words
+
+Shower idea: spreadsheet style image editor. (Also very much inspired by the way canvas works.)
+
+There would be a source image and a destination image (maybe call the destination image canvas?). Break the image up into 16x16 cells and stretch image to fit. Then you've got a selector, that can expand to different cell sizes, and can copy-paste paint from the source image to the canvas.
+
+So for that you'd need to be able to controld the selector, resize it, and change the source cells (while the destination cells stay the same).
+
+You might also need layers to keep things non-destructive.
+
+Actually you might want two modes of movement on the canvas, one where the source moves with it, and one were the source stays static. All of these should be instituted like live formulas from excel. Although you wouldn't be able to do a mutating feedback loop exactly, because your original is kept in original condition and you're always linking from there -- unless you also have the option to link from your destination. THat might be fun.
+
+You have two different color outline to indicate source and destination. That's actually quite a few combinations of modes - might take a while to get controls that feel good.
+
+I thought you would want to be able to change resolution (up and down). But actually it might be better to be able to zoom by factors of 2, like xzoom does. Depends which project this is a part of.
+
+It would definitely be fun to show the source and destination info at the bottom in text as an excel type formula.
+</div></div><div class="wrapper" style="margin-bottom: 1.2rem;"><div style="position: sticky; top: 0; background: #efefef; z-index: 99; margin-left: -1px; margin-right: -1px; padding-left: 1px; padding-right: 1px;">
+    <div style="position: absolute; left: 0; bottom: -1px; border-bottom: solid 2px black; width: 100%;"></div>
+    <div style="padding-left: 1ch; padding-right: 1ch;">
     <a href="/2020-088-48.html">2020-088-48.html</a></div></div><div style="white-space: pre-wrap; padding-left: 1ch; padding-right: 1ch; position: relative; "><div style="position: absolute; left: -1px; top: -1px; right: -1px; bottom: -1px; border: solid 2px black; z-index: -1; pointer-events: none;"></div>809 words
 
 Something I've remembered for a long time, is the description, Chris Langan, who supposedly had the highest IQ in the world, of the kind of thinking he does for pleasure (as told in a <a href="https://en.wikipedia.org/wiki/First_Person_(2000_TV_series" target="_blank">First Person</a>) episode). He talks about imagining the universe, and all the forces at play within it. I recognized the pleasure of some of that. One of my main pleasures from design/programming is holding a system in my head, and imagining how different adjustments would ripple out through the system. Often it is problem solving: 'how can I better balance this system', but not always.
